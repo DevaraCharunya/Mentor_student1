@@ -61,6 +61,30 @@ header li a {
     opacity: 0;
     transition: opacity 0.5s ease;
 }
+        .admin-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-link:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.admin-link:active {
+    background-color: #003f8c;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transform: scale(0.98);
+}
+
 
         </style>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -87,6 +111,7 @@ header li a {
      
     
 <script>
+    // Smooth scrolling for internal links
     document.querySelectorAll('a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             // Only smooth scroll if the link is internal (i.e., starts with '#')
@@ -105,7 +130,20 @@ header li a {
             }
         });
     });
-</script>  
+
+    // Hover effect for admin link
+    const adminLink = document.querySelector('.admin-link');
+    if (adminLink) {
+        adminLink.addEventListener('mouseover', function () {
+            this.style.transform = 'scale(1.05)';
+        });
+
+        adminLink.addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+        });
+    }
+</script>
+
     
 </body>
 </html>
